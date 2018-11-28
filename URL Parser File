@@ -1,0 +1,6 @@
+* URL urlParser
+
+1. Should take in a web address that it can then split into parts
+2. It needs to identify the protocol
+3. It needs to identify the domain
+4. It needs to identify the final document
