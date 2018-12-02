@@ -1,7 +1,7 @@
 'use strict'
 
 function WebAddress(url){
-  const regex = /(https?):\/\/(\w*)\.*(\w+)?\.(?:\w+\/.*\/)?([\w-]*)?$/g;
+  const regex = /(https?):\/\/(\w*)\.*(\w+)?\.(?:.*\/)?([\w-]*)?$/g;
   const match = regex.exec(url);
   const fileName = match[4]
 
