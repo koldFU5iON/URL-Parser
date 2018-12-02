@@ -6,8 +6,9 @@ const expect = chai.expect;
 const urlParser = require('../engine/URLPaser.js').parse;
 
 let urlTest = {
-  basic : 'https://stackoverflow.com/',
-  subDomain : 'https://sub.domain.com/'
+  basic : 'https://stackoverflow.com',
+  subDomain : 'https://sub.domain.com',
+  complex : 'https://uk.ign.com/articles/2018/11/30/red-dead-online-review'
 }
 
 describe('Testing the WebAddress Function', function() {
@@ -25,10 +26,12 @@ describe('Testing the WebAddress Function', function() {
     it(`expect urlParser to return the sub-domain name for ${urlTest.subDomain}`, function() {
       expect(urlParser(urlTest.subDomain)).to.contain.a.property('subDomain').to.equal('sub')
     })
-    it('urlParser should provide the final file')
+    it('urlParser should provide the final file', function() {
+      expect(urlParser(urlTest.complex)).to.contain.a.property('file').to.equal('red-dead-online-review')
+    })
   });
   describe('parse function', function() {
-    it('Should returnt the same URL back', () => {
+    it('Should return the same URL back', () => {
       expect(urlParser(urlTest.basic)).to.contain.a.property('url').to.equal(urlTest.basic)
     })
   });
