@@ -26,8 +26,13 @@ describe('Testing the WebAddress Function', function() {
     it(`expect urlParser to return the sub-domain name for ${urlTest.subDomain}`, function() {
       expect(urlParser(urlTest.subDomain)).to.contain.a.property('subDomain').to.equal('sub')
     })
+  });
+  describe('Testing file name manipulation', () => {
     it('urlParser should provide the final file', function() {
-      expect(urlParser(urlTest.complex)).to.contain.a.property('file').to.equal('red-dead-online-review')
+      expect(urlParser(urlTest.complex)).to.have.nested.property('file.title').to.equal('red-dead-online-review')
+    })
+    it('urlParser should provide the final file, with spaces and no "-"', function() {
+      expect(urlParser(urlTest.complex)).to.have.nested.property('file.clean').to.equal('red dead online review')
     })
   });
   describe('parse function', function() {
