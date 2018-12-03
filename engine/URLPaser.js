@@ -20,13 +20,6 @@ function WebAddress(url){
      title : fileName,
      clean : fileName.replace(/-/g,' ')
   }
-}
-
-function parse(url) {
-  let link = new WebAddress(url)
-  return link;
-}
-
-module.exports = {
-  parse
 };
+
+module.exports = WebAddress;
