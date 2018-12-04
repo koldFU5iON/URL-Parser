@@ -3,7 +3,7 @@
 function WebAddress(url){
   const regex = /(https?):\/\/(\w*)\.*(\w+)?\.(?:.*\/)?([\w-]*)?$/g;
   const match = regex.exec(url);
-  const fileName = match[4]
+  const fileName = match[4] || '';
 
   this.url = match[0];
   this.protocol = match[1];
