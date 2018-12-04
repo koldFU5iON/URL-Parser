@@ -4,7 +4,8 @@ block content
   h1= title
   p Welcome to #{title}
   p The URL entered is #{url}
-  p The Title of the URL is #{urlFilename}
+  p The Title of the URL is 
+    H1 #{urlFilename}
   form(action="/url/parse" method="get")
     label(for="team_name" ) Enter URL: 
     input(id="url_input" type="text" name="url_field" value="http://")
