@@ -6,14 +6,16 @@ const expect = chai.expect;
 const urlParser = require('../engine/URLPaser.js');
 
 let urlTest = {
-  basic : 'https://stackoverflow.com',
-  subDomain : 'https://sub.domain.com',
+  basic : 'https://stackoverflow.com/folder/test-file',
+  subDomain : 'https://sub.domain.com/folder/test-file',
+  endSlash : 'https://www.timeslive.co.za/news/africa/title-with-a-slash-at-the-end/',
   complex : 'https://uk.ign.com/articles/2018/11/30/red-dead-online-review'
 }
 
 let testWeb_Basic = new urlParser(urlTest.basic);
 let testWeb_Sub = new urlParser(urlTest.subDomain);
 let testWeb_Complex = new urlParser(urlTest.complex);
+let testWeb_endSlash = new urlParser(urlTest.endSlash);
 
 describe('Testing the WebAddress Function', function() {
   describe('Testing the object', function() {
@@ -32,6 +34,9 @@ describe('Testing the WebAddress Function', function() {
     })
   });
   describe('Testing file name manipulation', () => {
+    it('urlParser should provide the final file', function() {
+      expect(testWeb_endSlash.file.title).to.equal('title-with-a-slash-at-the-end');
+    })
     it('urlParser should provide the final file', function() {
       expect(testWeb_Complex).to.have.nested.property('file.title').to.equal('red-dead-online-review')
     })
