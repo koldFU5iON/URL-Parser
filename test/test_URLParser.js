@@ -47,6 +47,7 @@ describe('Testing the WebAddress Function', function() {
   describe('parse function', function() {
     it('Should return the same URL back', () => {
       expect(testWeb_Basic).to.contain.a.property('url').to.equal(urlTest.basic)
+      console.log(testWeb_Basic);
     })
   });
 });
