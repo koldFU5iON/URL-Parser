@@ -14,7 +14,7 @@ router.get('/url/parse', (req, res, next) => {
   let filename = '';
   if(req.query.url_field) {
     let link = new URLparse(req.query.url_field);
-    filename = link.file.clean;
+    filename = link.file.clean();
   }
   res.render('URLparse', {
     title: 'URL Parser',
