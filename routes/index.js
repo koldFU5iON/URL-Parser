@@ -8,19 +8,27 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/url/parse', (req, res, next) => {
-  // enter in validation
-  // const urlR = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)           (?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
-  // const url= content.match(urlR);
-  let filename = '';
-  if(req.query.url_field) {
-    let link = new URLparse(req.query.url_field);
-    filename = link.file.clean();
+
+  try {
+    let filename = '';
+    if(req.query.url_field) {
+      let link = new URLparse(req.query.url_field);
+      filename = link.file.clean();
+    }
+    res.render('URLparse', {
+      title: 'URL Parser',
+      url: req.query.url_field,
+      urlFilename: filename
+    });
   }
-  res.render('URLparse', {
-    title: 'URL Parser',
-    url: req.query.url_field,
-    urlFilename: filename
-  });
+  catch(err) {
+    res.render('URLparse', {
+      title: 'URL Parser',
+      url: req.query.url_field,
+      urlFilename: 'Not a valid address'
+    })
+  }
+
 })
 
 module.exports = router;
