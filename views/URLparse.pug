@@ -7,7 +7,10 @@ block content
   p The Title of the URL is 
     H1 #{urlFilename}
   form(action="/url/parse" method="get")
-    label(for="team_name" ) Enter URL: 
+    label(for='URL_Title' ) Enter URL: 
     input(id="url_input" type="text" name="url_field" value="http://")
     input(type="submit" value="OK")
-  
+  form(action="/url/parse" method="get")
+    label(for="URL_list" ) Enter URLs: 
+    textarea(id="multiple_url_input" rows="10" cols="30" name="url_field" value="http://")
+    input(type="submit" value="OK")
