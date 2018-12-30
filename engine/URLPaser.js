@@ -18,7 +18,17 @@ function WebAddress(url){
 
   this.file = {
      title : fileName,
-     clean : fileName.replace(/-/g,' ')
+     clean : function() {
+       let upperTitle = '';
+       let cleanFile = this.title.replace(/-/g,' ');
+       let words = cleanFile.split(' ');
+       let newTitle = [];
+
+       for (let word of words) {
+         newTitle.push(word.charAt(0).toUpperCase() + word.slice(1));
+       }
+       return upperTitle = newTitle.join(' ');
+     }
   }
 };
 

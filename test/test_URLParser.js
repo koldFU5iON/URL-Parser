@@ -36,7 +36,7 @@ describe('Testing the WebAddress Function', function() {
       expect(testWeb_Complex).to.have.nested.property('file.title').to.equal('red-dead-online-review')
     })
     it('urlParser should provide the final file, with spaces and no "-"', function() {
-      expect(testWeb_Complex).to.have.nested.property('file.clean').to.equal('red dead online review')
+      expect(testWeb_Complex.file.clean()).to.equal('Red Dead Online Review')
     })
   });
   describe('parse function', function() {
